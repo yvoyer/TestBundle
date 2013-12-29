@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- http://www.phpunit.de/manual/current/en/appendixes.configuration.html -->
+<phpunit
+        backupGlobals               = "false"
+        backupStaticAttributes      = "false"
+        colors                      = "true"
+        convertErrorsToExceptions   = "true"
+        convertNoticesToExceptions  = "true"
+        convertWarningsToExceptions = "true"
+        forceCoversAnnotation       = "true"
+        processIsolation            = "false"
+        stopOnFailure               = "false"
+        syntaxCheck                 = "false"
+        strict                      = "false"
+        bootstrap                   = "vendor/autoload.php" >
+    <php>
+        <server name="KERNEL_DIR" value="src/Star/Bundle/TestBundle/Tests/Functional/Fixture" />
+    </php>
+
+    <testsuites>
+        <testsuite name="unit">
+            <directory>src/Star/Bundle/TestBundle/Tests/Unit</directory>
+        </testsuite>
+        <testsuite name="functional">
+            <directory>src/Star/Bundle/TestBundle/Tests/Functional</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>src</directory>
+            <exclude>
+                <directory>src/Star/Bundle/TestBundle/Tests</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+
+    <!-- Enable the coverage -->
+    <!-- <logging>
+         <log type="coverage-html" target="/tmp/coverage/hoard.local" charset="UTF-8"/>
+    </logging> -->
+</phpunit>

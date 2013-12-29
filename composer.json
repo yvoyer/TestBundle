@@ -1,0 +1,22 @@
+{
+    "name": "star/test-bundle",
+    "description": "Library for testing Symfony2 bundles",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yannick Voyer",
+            "email": "yan.voyer+github@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "": ["src"]
+        }
+    },
+    "require": {
+        "symfony/symfony": "2.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    }
+}
