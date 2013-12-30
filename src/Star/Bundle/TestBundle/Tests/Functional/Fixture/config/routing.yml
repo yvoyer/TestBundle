@@ -1,15 +1,15 @@
 fixture_flash_index:
     pattern: /
-    defaults: { _controller: StarTestBundle:Fixture:index }
+    defaults: { _controller: star.controller:indexAction }
 
 fixture_flash_error:
         pattern: /error/{message}
-        defaults: { _controller: StarTestBundle:Fixture:error }
+        defaults: { _controller: star.controller:errorAction }
 
 fixture_flash_notice:
         pattern: /notice/{message}
-        defaults: { _controller: StarTestBundle:Fixture:notice }
+        defaults: { _controller: star.controller:noticeAction }
 
 fixture_flash_success:
         pattern: /success/{message}
-        defaults: { _controller: StarTestBundle:Fixture:success }
+        defaults: { _controller: star.controller:successAction }

@@ -5,32 +5,24 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\Bundle\TestBundle\Controller;
+namespace Star\Bundle\TestBundle\Tests\Functional\Fixture\Controller;
 
+use Star\Bundle\TestBundle\Controller\StarController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 
 /**
  * Class FixtureController
  *
  * @author  Yannick Voyer (http://github.com/yvoyer)
  *
- * @package Star\Bundle\TestBundle\Controller
+ * @package Star\Bundle\TestBundle\Tests\Functional\Fixture\Controller
  */
 class FixtureController extends StarController
 {
     public function indexAction()
     {
-        $messages = '';
-        $flashes = $this->container->get('session')->getFlashBag()->all();
-        if (false === empty($flashes)) {
-            foreach ($flashes as $message) {
-                $messages .= $message;
-            }
-        }
-
-        return new Response($messages);
+        return new Response($this->getFlash()->toString());
     }
 
     public function errorAction($message)

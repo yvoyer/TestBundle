@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <!-- todo change to StarController -->
+        <parameter key="star.controller.class">Star\Bundle\TestBundle\Tests\Functional\Fixture\Controller\FixtureController</parameter>
+    </parameters>
+
+    <services>
+        <service id="star_test_bundle.flash" class="Star\Bundle\TestBundle\Persistence\FlashMessage">
+            <argument type="service" id="session" />
+        </service>
+
+        <service id="star.controller" class="%star.controller.class%">
+            <argument type="service" id="star_test_bundle.flash" />
+        </service>
+    </services>
+</container>

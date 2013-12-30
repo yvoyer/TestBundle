@@ -8,7 +8,7 @@
         convertErrorsToExceptions   = "true"
         convertNoticesToExceptions  = "true"
         convertWarningsToExceptions = "true"
-        forceCoversAnnotation       = "true"
+        forceCoversAnnotation       = "false"
         processIsolation            = "false"
         stopOnFailure               = "false"
         syntaxCheck                 = "false"
@@ -37,7 +37,7 @@
     </filter>
 
     <!-- Enable the coverage -->
-    <!-- <logging>
-         <log type="coverage-html" target="/tmp/coverage/hoard.local" charset="UTF-8"/>
-    </logging> -->
+    <logging>
+         <log type="coverage-html" target="/tmp/coverage/test.local" charset="UTF-8"/>
+    </logging>
 </phpunit>

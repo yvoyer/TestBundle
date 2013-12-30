@@ -7,7 +7,7 @@
 
 namespace Star\Bundle\TestBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Star\Bundle\TestBundle\Persistence\FlashMessage;
 
 /**
  * Class StarController
@@ -16,8 +16,29 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  *
  * @package Star\Bundle\TestBundle\Controller
  */
-class StarController extends Controller
+class StarController
 {
+    /**
+     * @var FlashMessage
+     */
+    private $flash;
+
+    /**
+     * @param FlashMessage $flash
+     */
+    public function __construct(FlashMessage $flash)
+    {
+        $this->flash = $flash;
+    }
+
+    /**
+     * @return FlashMessage
+     */
+    protected function getFlash()
+    {
+        return $this->flash;
+    }
+
     /**
      * Add the $message to the error flash.
      *
@@ -25,7 +46,7 @@ class StarController extends Controller
      */
     protected function setFlashError($message)
     {
-        $this->get('session')->getFlashBag()->add('error', $message);
+        $this->flash->addMessage('error', $message);
     }
 
     /**
@@ -35,7 +56,7 @@ class StarController extends Controller
      */
     protected function setFlashNotice($message)
     {
-        $this->get('session')->getFlashBag()->add('notice', $message);
+        $this->flash->addMessage('notice', $message);
     }
 
     /**
@@ -45,6 +66,6 @@ class StarController extends Controller
      */
     protected function setFlashSuccess($message)
     {
-        $this->get('session')->getFlashBag()->add('success', $message);
+        $this->flash->addMessage('success', $message);
     }
 }

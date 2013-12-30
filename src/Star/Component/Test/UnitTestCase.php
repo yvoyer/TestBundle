@@ -1,20 +1,18 @@
 <?php
 /**
- * This file is part of the TestBundle.
+ * This file is part of the TestComponent.
  * 
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\Bundle\TestBundle\Tests;
+namespace Star\Component\Test;
 
 /**
  * Class UnitTestCase
  *
  * @author  Yannick Voyer (http://github.com/yvoyer)
  *
- * @package Star\Bundle\TestBundle\Tests
- *
- * todo Move to component
+ * @package Star\Component\Test
  */
 class UnitTestCase extends \PHPUnit_Framework_TestCase
 {

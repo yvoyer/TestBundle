@@ -18,13 +18,26 @@ use Star\Bundle\TestBundle\Tests\IntegrationTestCase;
  */
 class PageControllerTest extends IntegrationTestCase
 {
-    public function testShouldSaveTheMessageForTheNextRequest()
+    /**
+     * @dataProvider provideSupportedTypeMessage
+     */
+    public function testShouldSaveTheMessageForTheNextRequest($type)
     {
-        // Todo cahnger config de session pour tests session
-        $crawler = $this->request('/error/my-error');
-//        $crawler = $this->request('/');
+        $this->request("/{$type}/my-{$type}");
+        $this->getClient()->followRedirect();
 
-//        var_dump($crawler);
+        $content = $this->getCrawler()->text();
+        $this->assertContains($type, $content);
+        $this->assertContains('my-' . $type, $content);
+    }
+
+    public function provideSupportedTypeMessage()
+    {
+        return array(
+            array('error'),
+            array('success'),
+            array('notice'),
+        );
     }
 }
  
